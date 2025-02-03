@@ -17,8 +17,6 @@ replay_pid*
 bin/
 tmp/
 .metadata
-.classpath
-.project
 *.tmp
 *.bak
 *.swp
@@ -31,3 +29,4 @@ local.properties
 ## Miscellaneous
 ##############################
 *.log
+.DS_Store
