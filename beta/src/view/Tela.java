@@ -1,5 +1,6 @@
 package view;
 
+import java.util.List;
 import java.util.Scanner;
 
 import model.Tarefa;
@@ -11,14 +12,16 @@ public class Tela {
 		System.out.println("2 - Consulta de tarefa");
 		System.out.println("3 - Alteração de tarefa");
 		System.out.println("4 - Exclusão de tarefa");
+		System.out.println("9 - Carga de dados de teste");
 		System.out.println("0 - F  I  M");
 		System.out.println("Digite a opção desejada:");
 	}
 	
-	public Tarefa exibirInclusao() {
+	public Tarefa exibirInclusao (int indice) {
 		Scanner teclado = new Scanner(System.in);
 		Tarefa tarefa = new Tarefa();
 		
+		tarefa.setId(indice);
 		System.out.println("I N C L U S Ã O");
 		System.out.println("Descrição : ");
 		tarefa.setDescricao(teclado.nextLine());
@@ -36,10 +39,14 @@ public class Tela {
 		return tarefa;
 	}
 	
-	public void exibirTarefa(Tarefa tarefa) {
+	public void exibirTarefa(List<Tarefa> tarefas) {
 		System.out.println("C O N S U L T A");
-		System.out.println(tarefa);
+		
+		for(Tarefa item: tarefas) {
+		System.out.println(item);
 		System.out.println("--------------------------------------------");
+		
+		}
 	}
 	
 	public Tarefa exibirAlteracao(Tarefa tarefa) {
@@ -58,16 +65,33 @@ public class Tela {
 		} else {
 			tarefa.setFinalizada(false);
 		}
+	}
+	       } else {
+			System.out.println("Opção inválida");
 		
+        }
+        
 		return tarefa;
 	}
 	
-	public Tarefa exibirExclusao(Tarefa tarefa) {
-		tarefa.setDescricao("");
-		tarefa.setFinalizada(false);
-		tarefa.setPrazo(0);
+	public List<Tarefa> exibirExclusao(List<Tarefa> tarefas) {
+		exibirTarefa(tarefas);
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("Deseja excluir qual tarefa?");
+		int busca = scanner.nextInt();
+		
+		for(Tarefa tarefa: tarefas) {
+			if(tarefa.getId() == busca) {
+				registro = tarefa);
+			}
+		}
+		
+		tarefas remove
+	}
 		System.out.println("Tarefa excluída!");
 		
-		return tarefa;
+		return tarefas;
 	}
 }
