@@ -21,9 +21,9 @@ public class Controller {
 		} else if(opcao == 3) {
 			tarefa = tela.exibirAlteracao(tarefa);
 		} else if(opcao == 4) {
-			tarefa = tela.exibirExclusao(tarefa);
+			tarefas = tela.exibirExclusao(tarefas);
 		} else if(opcao == 9) {
-			tarefa = gerarDadosDeTeste(tarefa);
+			tarefas = gerarDadosDeTeste();
 		} else if(opcao == 0){
 			System.out.println("Aplicação encerrada");
 		} else {
@@ -33,14 +33,14 @@ public class Controller {
 	
 	public int gerarIndice(List<Tarefa> lista) {
 		int retorno;
-
+		
 		if(lista.isEmpty()) {
 			retorno = 1;
 		} else {
 			retorno = lista.size() + 1;
 		}
 		
-		return retorno;		
+		return retorno;
 	}
 	
 	public List<Tarefa> gerarDadosDeTeste(){
@@ -49,15 +49,12 @@ public class Controller {
 		for(int i = 0; i < 5; i++) {
 			Tarefa tarefa = new Tarefa();
 			tarefa.setId(i);
-			tarefa.setDescricao("Comprar algo" + i);
+			tarefa.setDescricao("Comprar algo " + i);
 			tarefa.setPrazo(1);
 			tarefa.setFinalizada(false);
 			
-			lista.add(tarefa);
-			
+			lista.add(tarefa);		
 		}
-		
 		return lista;
 	}
 }
-	
